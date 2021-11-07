@@ -20,6 +20,8 @@ class UserInfo extends Component {
         <p>Name: {this.state.name}</p>
         <p>Email: {this.state.email}</p>
         <p>ID: {this.state.id}</p>
+        <p>Access Token: {this.props.keycloak.token}</p>
+        <p>ID Token: {this.props.keycloak.idToken}</p>
       </div>
     );
   }
