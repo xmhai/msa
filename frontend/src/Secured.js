@@ -28,8 +28,7 @@ class Secured extends Component {
     axios.get(`http://localhost:9080/service1/data`, config)
       .then(res => {
         console.log(res);
-        console.log(res.data);
-        alert(res.data.status);
+        alert(res.statusText);
       })
   }
 

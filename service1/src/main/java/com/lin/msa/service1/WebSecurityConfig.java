@@ -16,8 +16,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	// With this setting:-
+    	// if token is presented in "Authorization" header, it will be checked and return 401 if invalid, set to SecurityContext is valid token
+    	// if token not presented, it will not be authenticated, 
 		http.cors().and().authorizeRequests()
-			.anyRequest().permitAll()
+			.anyRequest().permitAll()  
             .and()
             	.oauth2ResourceServer().jwt();
     }

@@ -30,7 +30,9 @@ public class Service1Application {
 	@RequestMapping("/data")
 	public String getData(@AuthenticationPrincipal Jwt principal) {
 		String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-		return "{\"id\":1, \"name\":\"Service1\", \"timestamp\":\""+timeStamp+"\", \"username\":\""+principal.getClaimAsString("preferred_username")+"\"}";
+		String username = principal==null ? "NULL" : principal.getClaimAsString("preferred_username");
+		
+		return "{\"id\":1, \"name\":\"Service1\", \"timestamp\":\""+timeStamp+"\", \"username\":\""+username+"\"}";
 	}
 
 	/*
