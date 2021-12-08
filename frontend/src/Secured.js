@@ -18,14 +18,28 @@ class Secured extends Component {
     })
   }
 
-  handleOnClick = () => {
+  handleOnClickService1 = () => {
     let config = {
         headers: {
             'Authorization': `Bearer ${this.state.keycloak.token}`,
         }
     }
 
-    axios.get(`http://localhost:9080/service1/data`, config)
+    axios.get(`http://localhost:8083/service1/data`, config)
+      .then(res => {
+        console.log(res);
+        alert(res.statusText);
+      })
+  }
+
+  handleOnClickService2 = () => {
+    let config = {
+        headers: {
+            'Authorization': `Bearer ${this.state.keycloak.token}`,
+        }
+    }
+
+    axios.get(`http://localhost:8083/service2/data`, config)
       .then(res => {
         console.log(res);
         alert(res.statusText);
@@ -37,7 +51,8 @@ class Secured extends Component {
       if(this.state.authenticated) {
        return (
         <div>
-          <p><button onClick={this.handleOnClick} type="button">Service1</button></p>
+          <p><button onClick={this.handleOnClickService1} type="button">Service1</button></p>
+          <p><button onClick={this.handleOnClickService2} type="button">Service2</button></p>
           <UserInfo keycloak={this.state.keycloak} />
           <Logout keycloak={this.state.keycloak} />
         </div>

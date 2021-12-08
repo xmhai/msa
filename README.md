@@ -5,6 +5,17 @@ Spring Microservice Reference Implementation
 Keycloak  
 password set wrongly, caused "address: ([("subsystem" => "metrics")]): java.lang.NullPointerException".  
 
+create react-app
+https://scalac.io/blog/user-authentication-keycloak-1/
+Major OIDC servers all provide client library, so it is the best choice to use verdor library instead of generic one
+Thinking about that problem is good, but in reality it's easy to mitigate. You can make all keycloak specific logic in a single file so it's easy to change out. Plus how likely are things to change. If you spend weeks now to prevent something that might take hours years from now it may not be worth it
+npm install -g create-react-app
+create-react-app keycloak-react
+npm start
+
+	"react-router-dom": "^5.2.0",
+    "keycloak-js": "15.0.2"
+
 Spring Cloud Gateway
 The path are forward to the backend service. e.g. "/bin" -> "http://httpbin:80" will become "http://httpbin:80/bin"  
 
